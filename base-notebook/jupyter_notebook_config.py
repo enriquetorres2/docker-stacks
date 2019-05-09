@@ -1,4 +1,4 @@
-# Copyright (c) Jupyter Development Team.
+ # Copyright (c) Jupyter Development Team.
 # Distributed under the terms of the Modified BSD License.
 
 from jupyter_core.paths import jupyter_data_dir
@@ -11,7 +11,8 @@ c = get_config()
 c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.port = 8888
 c.NotebookApp.open_browser = False
-
+c.NotebookApp.extra_static_paths = ['/j/'+os.getenv('OPENSTACK_IP')+':8888/static/']
+c.NotebookApp.extra_template_paths = ['/j/'+os.getenv('OPENSTACK_IP')+':8888/templates/']
 # https://github.com/jupyter/notebook/issues/3130
 c.FileContentsManager.delete_to_trash = False
 
